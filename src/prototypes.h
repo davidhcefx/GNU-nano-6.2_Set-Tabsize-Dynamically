@@ -519,6 +519,7 @@ void do_formatter(void);
 #endif
 #ifndef NANO_TINY
 void count_lines_words_and_characters(void);
+void do_set_tabsize(void);
 #endif
 void do_verbatim_input(void);
 void complete_a_word(void);

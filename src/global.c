@@ -623,6 +623,7 @@ void shortcut_init(void)
 	const char *wordcount_gist =
 		N_("Count the number of lines, words, and characters");
 	const char *suspend_gist = N_("Suspend the editor (return to the shell)");
+	const char *settabsize_gist = N_("Set new tabsize");
 #endif
 	const char *refresh_gist = N_("Refresh (redraw) the current screen");
 #ifdef ENABLE_WORDCOMPLETION
@@ -978,6 +979,8 @@ void shortcut_init(void)
 #ifndef NANO_TINY
 	add_to_funcs(count_lines_words_and_characters, MMAIN,
 		N_("Word Count"), WITHORSANS(wordcount_gist), TOGETHER, VIEW);
+	add_to_funcs(do_set_tabsize, MMAIN,
+		N_("Set Tabsize"), WITHORSANS(settabsize_gist), TOGETHER, NOVIEW);
 #endif
 
 	add_to_funcs(do_verbatim_input, MMAIN,
@@ -1355,6 +1358,7 @@ void shortcut_init(void)
 	add_to_sclist(MEXECUTE, "^Z", 0, do_suspend, 0);
 	add_to_sclist(MMAIN, "^Z", 0, suggest_ctrlT_ctrlZ, 0);
 	add_to_sclist(MMAIN, "M-D", 0, count_lines_words_and_characters, 0);
+	add_to_sclist(MMAIN, "M-4", 0, do_set_tabsize, 0);
 #else
 	add_to_sclist(MMAIN, "M-H", 0, do_help, 0);
 #endif
